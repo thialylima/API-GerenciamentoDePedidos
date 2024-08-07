@@ -8,6 +8,7 @@ import com.thialy.desafio_api.model.service.OrderService;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
@@ -18,6 +19,16 @@ public class OrderController {
     @GetMapping
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
+        try {
+            Order order = orderService.getOrderById(id);
+            return ResponseEntity.ok(order);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
     @PostMapping

@@ -21,6 +21,15 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
+    public Order getOrderById(Long id) throws Exception {
+        Optional<Order> order = orderRepository.findById(id);
+        if (order.isPresent()) {
+            return order.get();
+        } else {
+            throw new Exception("Pedido não encontrado");
+        }
+    }
+
     private static final int MAX_ORDERS = 10;
 
     @Transactional
