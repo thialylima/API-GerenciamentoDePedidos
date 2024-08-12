@@ -80,4 +80,3 @@ Sinta-se à vontade para contribuir com este projeto! Você pode abrir uma issue
 ## 📞 Contato
 
 Thialy Lima - [LinkedIn](https://www.linkedin.com/in/thialy-sthéfany/) - thialymedeiros@gmail.com
-```
