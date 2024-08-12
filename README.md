@@ -77,6 +77,3 @@ A API estará disponível em `http://localhost:8080/swagger-ui/index.html#/`.
 
 Sinta-se à vontade para contribuir com este projeto! Você pode abrir uma issue ou enviar um pull request com melhorias e correções.
 
-## 📞 Contato
-
-Thialy Lima - [LinkedIn](https://www.linkedin.com/in/thialy-sthéfany/) - thialymedeiros@gmail.com
