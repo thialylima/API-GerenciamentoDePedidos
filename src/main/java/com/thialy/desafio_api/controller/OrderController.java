@@ -20,12 +20,14 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    // Anotação swagger
     @Operation(summary = "Get all orders")
     @GetMapping
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
     }
 
+    // Anotação swagger
     @Operation(summary = "Get an order by ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Found the order",
@@ -43,7 +45,8 @@ public class OrderController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-
+    
+    // Anotação swagger
     @Operation(summary = "Create a new order")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Order created",
@@ -62,6 +65,7 @@ public class OrderController {
         }
     }
 
+    // Anotação swagger
     @Operation(summary = "Update an existing order")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Order updated",
@@ -80,6 +84,7 @@ public class OrderController {
         }
     }
 
+    // Anotação swagger
     @Operation(summary = "Delete an order by ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Order deleted",

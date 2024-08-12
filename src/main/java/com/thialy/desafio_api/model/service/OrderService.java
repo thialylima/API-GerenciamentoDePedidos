@@ -30,6 +30,7 @@ public class OrderService {
         }
     }
 
+    //delimitando o banco a 10 itens
     private static final int MAX_ORDERS = 10;
 
     @Transactional
@@ -38,9 +39,12 @@ public class OrderService {
             throw new Exception("Número máximo de pedidos atingido.");
         }
 
+        // se a data não for preenchida, vai preencher com a data atual
         if (order.getDataCadastro() == null) {
             order.setDataCadastro(new Date());
         }
+
+        // se a quantidade não for preenchida, vai preencher com 1
         if (order.getQuantidade() == null || order.getQuantidade() == 0) {
             order.setQuantidade(1);
         }
@@ -52,6 +56,7 @@ public class OrderService {
         BigDecimal valor = new BigDecimal(order.getValor_total());
         BigDecimal valorDesconto;
 
+        // Aplicando desconto
         if (order.getQuantidade() >= 5 && order.getQuantidade() < 10) {
             valorDesconto = valor.multiply(new BigDecimal("0.95"));
         } else if (order.getQuantidade() >= 10) {
