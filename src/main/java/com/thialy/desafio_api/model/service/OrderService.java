@@ -1,11 +1,9 @@
 package com.thialy.desafio_api.model.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.thialy.desafio_api.model.entities.Order;
 import com.thialy.desafio_api.model.repository.OrderRepository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
