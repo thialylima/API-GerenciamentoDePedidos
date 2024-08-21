@@ -15,6 +15,7 @@ Este repositório contém o código de uma API desenvolvida como parte do Desafi
 - **Spring Boot**: Framework para facilitar a criação de APIs RESTful.
 - **MySQL**: Banco de dados relacional utilizado para armazenar os dados.
 - **Maven**: Gerenciador de dependências e automação de build.
+- **Flyway**: Ferramenta para versionamento e migração de esquemas de banco de dados.
 
 ## 📂 Estrutura do Projeto
 
@@ -50,16 +51,10 @@ cd API-Desafio1
 ### 2. Configure o banco de dados
 
 - Certifique-se de ter o MySQL instalado e rodando na sua máquina.
-- Crie um banco de dados para a API:
-
-```sql
-CREATE DATABASE api_desafio1;
-```
 
 - Atualize o arquivo `application.properties` com suas credenciais do MySQL:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/api_desafio1
 spring.datasource.username=SEU_USUARIO
 spring.datasource.password=SUA_SENHA
 ```
@@ -72,6 +67,18 @@ mvn spring-boot:run
 ```
 
 A API estará disponível em `http://localhost:8080/swagger-ui/index.html#/`.
+
+## Request Body (Campos obrigatórios)
+
+```
+{
+  "numeroControle": "085",
+  "nome": "Pipoca",
+  "valor_un": 9.65,
+  "quantidade": 25,
+  "codigoCliente": 6
+}
+```
 
 ## 🤝 Contribuição
 
