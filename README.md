@@ -68,15 +68,15 @@ mvn spring-boot:run
 
 A API estará disponível em `http://localhost:8080/swagger-ui/index.html#/`.
 
-## Request Body (Campos obrigatórios)
+## 🏗️ Request Body (Campos obrigatórios)
 
 ```
 {
-  "numeroControle": "085",
+  "numeroControle": "005",
   "nome": "Pipoca",
   "valor_un": 9.65,
   "quantidade": 25,
-  "codigoCliente": 6
+  "codigoCliente": 2
 }
 ```
 
