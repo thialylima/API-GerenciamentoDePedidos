@@ -20,7 +20,7 @@ public class Order {
 
     @Column(name = "numero_controle", unique = true) // Adicionando a restrição de unicidade
     @Schema(description = "Número de controle do pedido", example = "001", required = true)
-    private String numeroControle;
+    private Integer numeroControle;
 
     @Column(name = "data_cadastro")
     @Schema(description = "Data de cadastro do pedido", example = "2024-08-07T14:32:39", required = false)
@@ -53,10 +53,10 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getNumeroControle() {
+    public Integer getNumeroControle() {
         return numeroControle;
     }
-    public void setNumeroControle(String numeroControle) {
+    public void setNumeroControle(Integer numeroControle) {
         this.numeroControle = numeroControle;
     }
     public Date getDataCadastro() {

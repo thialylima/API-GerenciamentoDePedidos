@@ -48,19 +48,23 @@ public class OrderService {
         }
 
         // Multiplicando o valor unitário pela quantidade de itens
-        order.setValor_total(order.getValor_un() * order.getQuantidade());
+        BigDecimal valorUnitario = new BigDecimal(order.getValor_un());
+        BigDecimal quantidade = new BigDecimal(order.getQuantidade());
+        BigDecimal valorTotal = valorUnitario.multiply(quantidade);
 
-        // Usando BigDecimal para precisão
-        BigDecimal valor = new BigDecimal(order.getValor_total());
-        BigDecimal valorDesconto;
+        // Arredonda o valor total para 2 casas decimais
+        valorTotal = valorTotal.setScale(2, RoundingMode.HALF_UP);
+        order.setValor_total(valorTotal.doubleValue());
 
         // Aplicando desconto
+        BigDecimal valorDesconto;
+
         if (order.getQuantidade() >= 5 && order.getQuantidade() < 10) {
-            valorDesconto = valor.multiply(new BigDecimal("0.95"));
+            valorDesconto = valorTotal.multiply(new BigDecimal("0.95"));
         } else if (order.getQuantidade() >= 10) {
-            valorDesconto = valor.multiply(new BigDecimal("0.90"));
+            valorDesconto = valorTotal.multiply(new BigDecimal("0.90"));
         } else {
-            valorDesconto = valor; // Nenhum desconto aplicado
+            valorDesconto = valorTotal; // Nenhum desconto aplicado
         }
 
         // Arredonda para 2 casas decimais

@@ -1,4 +1,5 @@
 package com.thialy.desafio_api.controller;
+import com.thialy.desafio_api.dto.OrderDTO;
 import com.thialy.desafio_api.model.entities.Order;
 import com.thialy.desafio_api.model.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -7,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -53,14 +55,23 @@ public class OrderController {
         @ApiResponse(responseCode = "400", description = "Invalid input",
                      content = @Content)
     })
+
     @PostMapping
-    public ResponseEntity<String> createOrder(@RequestBody Order order) {
+    public ResponseEntity<String> createOrder(@RequestBody OrderDTO orderDTO) {
+        Order order = new Order();
+        order.setNumeroControle(orderDTO.getNumeroControle());
+        order.setNome(orderDTO.getNome());
+        order.setValor_un(orderDTO.getValor_un());
+        order.setQuantidade(orderDTO.getQuantidade());
+        order.setCodigoCliente(orderDTO.getCodigoCliente());
+        
         try {
             orderService.saveOrder(order);
             return ResponseEntity.ok("Pedido criado com sucesso.");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+
     }
 
     // Anotação swagger

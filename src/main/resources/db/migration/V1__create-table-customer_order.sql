@@ -3,7 +3,7 @@ CREATE TABLE customer_order (
     codigo_cliente INT DEFAULT NULL,
     data_cadastro DATETIME DEFAULT NULL,
     nome_produto VARCHAR(255) DEFAULT NULL,
-    numero_controle VARCHAR(255) DEFAULT NULL,
+    numero_controle INT DEFAULT NULL,
     quantidade INT DEFAULT NULL,
     valor_un DOUBLE DEFAULT NULL,
     valor_total DOUBLE DEFAULT NULL,
