@@ -45,128 +45,128 @@
           }
         }
       },
-      "put": {
-        "tags": [
-          "order-controller"
-        ],
-        "summary": "Update an existing order",
-        "operationId": "updateOrder",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Order"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Order updated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Order not found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "order-controller"
-        ],
-        "summary": "Delete an order by ID",
-        "operationId": "deleteOrder",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Order deleted"
-          },
-          "404": {
-            "description": "Order not found"
-          }
-        }
-      }
-    },
-    "/orders": {
-      "get": {
-        "tags": [
-          "order-controller"
-        ],
-        "summary": "Get all orders",
-        "operationId": "getAllOrders",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Order"
+      "/orders": {
+        "get": {
+          "tags": [
+            "order-controller"
+          ],
+          "summary": "Get all orders",
+          "operationId": "getAllOrders",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Order"
+                    }
                   }
                 }
               }
             }
           }
-        }
-      },
-      "post": {
-        "tags": [
-          "order-controller"
-        ],
-        "summary": "Create a new order",
-        "operationId": "createOrder",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Order"
-              }
-            }
-          },
-          "required": true
         },
-        "responses": {
-          "201": {
-            "description": "Order created",
+        "post": {
+          "tags": [
+            "order-controller"
+          ],
+          "summary": "Create a new order",
+          "operationId": "createOrder",
+          "requestBody": {
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Order"
                 }
               }
-            }
+            },
+            "required": true
           },
-          "400": {
-            "description": "Invalid input"
+          "responses": {
+            "201": {
+              "description": "Order created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "order-controller"
+          ],
+          "summary": "Update an existing order",
+          "operationId": "updateOrder",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Order updated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Order not found"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "order-controller"
+          ],
+          "summary": "Delete an order by ID",
+          "operationId": "deleteOrder",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Order deleted"
+            },
+            "404": {
+              "description": "Order not found"
+            }
           }
         }
       }
@@ -182,7 +182,8 @@
             "format": "int64"
           },
           "numeroControle": {
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           },
           "dataCadastro": {
             "type": "string",
